@@ -3,9 +3,7 @@
 ### 1. Khi gõ https://shopee.vn vào trình duyệt và nhấn Enter, thứ tự ít nhất 5 bước xảy ra (từ DNS lookup đến render) là:
 - *Nguồn tham chiếu: tuan_1_html5/01_introduction_html_universe.md/1.WEB HOẠT ĐỘNG NHƯ THẾ NÀO?*
 - **B1. Gọi Shipper tìm địa chỉ (DNS Lookup):**
-Trước khi gửi yêu cầu "Phở bò" (HTTP Request), trình duyệt cần biết địa chỉ chính xác của nhà hàng Shopee.
-Hành động: Trình duyệt hỏi máy chủ DNS: "Shopee.vn ở địa chỉ IP nào?".
-Kết quả: Nhận về một địa chỉ số (ví dụ: 111.222.33.44) để biết chính xác máy chủ đang nằm ở đâu trên Internet.
+Trước khi gửi yêu cầu HTTP Request, trình duyệt cần biết địa chỉ chính xác của nhà hàng Shopee. Trình duyệt hỏi máy chủ DNS: "Shopee.vn ở địa chỉ IP nào?". DNS trả về cho trình duyệt một địa chỉ số (ví dụ: 111.222.33.44) để biết chính xác máy chủ đang nằm ở đâu trên Internet.
 - **B2. Thiết lập kết nối an toàn (TCP/TLS Handshake):**
 Vì Shopee dùng HTTPS, trình duyệt cần thiết lập một kết nối bảo mật trước khi truyền tin.
 Hành động: Đây là bước "bắt tay" giữa Client và Server để thống nhất cách mã hóa dữ liệu, đảm bảo không ai có thể "ăn trộm" thông tin đơn hàng hay tài khoản của bạn trên đường đi.
