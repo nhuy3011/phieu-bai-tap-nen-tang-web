@@ -93,3 +93,18 @@ Paint: Cuối cùng, hình ảnh sản phẩm và giá cả hiện lên hoàn ch
 - **SEO kém (Search Engine Optimization):** Google và các bộ máy tìm kiếm sử dụng các thuật toán để đọc hiểu nội dung web. Khi bạn dùng bảng để dàn trang, cấu trúc mã nguồn sẽ trở nên cực kỳ phức tạp với hàng tầng thẻ ```<tr>```, ```<td>``` lồng nhau. Google sẽ khó xác định đâu là nội dung chính, đâu là menu, dẫn đến việc xếp hạng website của bạn bị thấp.
 - **Không linh hoạt trên thiết bị di động (Responsive):** Bảng có tính chất "cứng nhắc", nó luôn cố gắng giữ đúng số cột và hàng. Trên màn hình máy tính (rộng) thì có thể đẹp, nhưng khi xem trên điện thoại (hẹp), bảng sẽ bị tràn ra ngoài hoặc co lại đến mức không đọc được. Với CSS hiện đại (Flexbox/Grid), chúng ta có thể dễ dàng chuyển từ 3 cột trên máy tính thành 1 cột trên điện thoại, điều mà ```<table>``` làm rất khó khăn.
 - **Tốc độ tải trang chậm và khó bảo trì:** Trình duyệt thường phải đợi tải xong toàn bộ mã nguồn của thẻ ```<table>``` thì mới bắt đầu hiển thị bảng đó ra màn hình. Nếu trang web của bạn lồng quá nhiều bảng để dàn trang, người dùng sẽ thấy một màn hình trắng trong thời gian dài. Ngoài ra, khi bạn muốn thay đổi vị trí một cái menu, bạn phải sửa lại toàn bộ cấu trúc hàng/cột của bảng, việc này cực kỳ tốn thời gian và dễ gây lỗi code.
+
+# PHẦN B — THỰC HÀNH CODE (60 điểm)
+## Bài B3 (15đ) — Debug HTML
+- Lỗi 1: Dòng 1 — Thẻ ```<!DOCTYPE>``` thiếu html — Sửa thành ```<!DOCTYPE html>```.
+- Lỗi 2: Dòng 1 — Thiếu thuộc tính lang trong thẻ ```<html>``` — Sửa thành ```<html lang="vi">```.
+- Lỗi 3: Dòng 2 — Thẻ ```<title>``` chưa đóng — Thêm ```</title>```.
+- Lỗi 4: Dòng 3 — Giá trị utf8 thiếu gạch ngang và sai chuẩn — Sửa thành UTF-8.
+- Lỗi 5: Dòng 4 — Thẻ ```<h1>``` đóng sai bằng ```<h1>``` — Sửa thành ```</h1>```.
+- Lỗi 6: Dòng 8 — Thẻ ```<a>``` đóng sai bằng ```<a>``` — Sửa thành ```</a>```.
+- Lỗi 7: Dòng 15 — Thẻ ```<img>``` thiếu dấu ngoặc kép cho đường dẫn và thiếu thuộc tính alt — Sửa thành src="iphone.jpg" alt="...".
+- Lỗi 8: Dòng 17 — Sai thứ tự đóng thẻ lồng nhau: ```<b>``` đóng sau ```<p>``` — Sửa thành ```<b>```...```</b>``````</p>```.
+- Lỗi 9: Dòng 22 — Bảng thiếu cấu trúc ```<thead>``` và ```<tbody>``` cho đúng ngữ nghĩa.
+- Lỗi 10: Dòng 24 — Tiêu đề bảng dùng ```<td>``` — Sửa thành <th> để đúng ngữ nghĩa tiêu đề.
+- Lỗi 11: Dòng 33 — Sử dụng 2 thẻ ```<main>``` (một trang chỉ được có một thẻ main duy nhất) — Sửa cái thứ 2 thành ```<aside>```.
+- Lỗi 12: Dòng 37 — Đoạn văn trong ```<footer>``` chưa đóng thẻ ```<p>``` — Thêm ```</p>```.
