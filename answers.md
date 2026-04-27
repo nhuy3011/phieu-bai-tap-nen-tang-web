@@ -112,11 +112,18 @@ Paint: Cuối cùng, hình ảnh sản phẩm và giá cả hiện lên hoàn ch
 ## Bài B4 (15đ) — Phân tích trang web thật
 **1.**
 - 3 thẻ semantic HTML5 mà thegioididong.com sử dụng:
-  + <header>: Xuất hiện ở dòng có class="header v2024...". Đây là nơi chứa logo và thanh công cụ đầu trang.
-  + <section>: Có nhiều thẻ section như id="game", id="news". Trang web dùng thẻ này để phân chia các khu vực nội dung khác nhau (Tin tức, Game...).
-  + <footer>: Xuất hiện ở cuối trang (class="footer v2024"), chứa thông tin bản quyền và liên kết phụ.
+  + ```<header>```: Xuất hiện ở dòng có class="header v2024...". Đây là nơi chứa logo và thanh công cụ đầu trang.
+  + ```<section>```: Có nhiều thẻ section như id="game", id="news". Trang web dùng thẻ này để phân chia các khu vực nội dung khác nhau (Tin tức, Game...).
+  + ```<footer>```: Xuất hiện ở cuối trang (class="footer v2024"), chứa thông tin bản quyền và liên kết phụ.
 - 2 thẻ mà trang đó KHÔNG dùng đúng semantic:
-  + Thanh thông báo trên cùng: Đang dùng <div class="header-top-bar">. Đúng ra nên dùng thẻ <section> hoặc trực tiếp bên trong <header>.
-  + Khu vực chọn vị trí: Dùng <div class="locationbox-v2">. Vì đây là một tiện ích bổ sung, có thể dùng thẻ <aside> hoặc <section> sẽ mang tính ngữ nghĩa cao hơn thẻ div trung tính.
+  + Thanh thông báo trên cùng: Đang dùng ```<div class="header-top-bar">```. Đúng ra nên dùng thẻ <section> hoặc trực tiếp bên trong ```<header>```.
+  + Khu vực chọn vị trí: Dùng ```<div class="locationbox-v2">```. Vì đây là một tiện ích bổ sung, có thể dùng thẻ ```<aside>``` hoặc ```<section>``` sẽ mang tính ngữ nghĩa cao hơn thẻ div trung tính.
 **2.**
-    
+- Nội dung hiển thị: Thông số chi tiết về cấu hình điện thoại (Màn hình, Hệ điều hành, Camera, Chip...).
+- thegioididong.comkhông dùng thẻ <table> truyền thống cho phần này. Thay vì dùng ```<table>```, ```<tr>```, ```<td>```, họ lại dùng danh sách không thứ tự ```<ul>``` và các thẻ ```<li>``` . Bên trong mỗi ```<li>```, họ dùng thẻ ```<span>``` cho tên thông số (ví dụ: "Màn hình:") và thẻ ```<div>``` cho giá trị thông số (ví dụ: "LCD, 6.74", HD+").
+**3.** From tìm kiếm
+- **Action:** action="/tim-kiem". Điều này có nghĩa là khi người dùng nhấn tìm kiếm, dữ liệu sẽ được gửi về đường dẫn /tim-kiem trên hệ thống của Thế Giới Di Động để xử lý.
+- **Method:** Mặc dù trong thẻ không ghi rõ method, nhưng thông thường với các form tìm kiếm công khai như thế này, trình duyệt sẽ mặc định dùng phương thức GET. Có thể thấy các thuộc tính như onsubmit dùng để gọi hàm JavaScript xử lý trước khi gửi.
+- **Các Input types được sử dụng:**
+  + type="text": Được dùng cho ô nhập từ khóa chính (ô có id="skw"). Đây là nơi người dùng gõ tên sản phẩm.
+  + Thẻ ```<button>``` với type="submit": Dùng để kích hoạt việc gửi form (nút có aria-label="button suggest search").
