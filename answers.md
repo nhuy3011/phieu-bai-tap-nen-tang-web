@@ -108,3 +108,15 @@ Paint: Cuối cùng, hình ảnh sản phẩm và giá cả hiện lên hoàn ch
 - Lỗi 10: Dòng 24 — Tiêu đề bảng dùng ```<td>``` — Sửa thành <th> để đúng ngữ nghĩa tiêu đề.
 - Lỗi 11: Dòng 33 — Sử dụng 2 thẻ ```<main>``` (một trang chỉ được có một thẻ main duy nhất) — Sửa cái thứ 2 thành ```<aside>```.
 - Lỗi 12: Dòng 37 — Đoạn văn trong ```<footer>``` chưa đóng thẻ ```<p>``` — Thêm ```</p>```.
+
+## Bài B4 (15đ) — Phân tích trang web thật
+**1.**
+- 3 thẻ semantic HTML5 mà thegioididong.com sử dụng:
+  + <header>: Xuất hiện ở dòng có class="header v2024...". Đây là nơi chứa logo và thanh công cụ đầu trang.
+  + <section>: Có nhiều thẻ section như id="game", id="news". Trang web dùng thẻ này để phân chia các khu vực nội dung khác nhau (Tin tức, Game...).
+  + <footer>: Xuất hiện ở cuối trang (class="footer v2024"), chứa thông tin bản quyền và liên kết phụ.
+- 2 thẻ mà trang đó KHÔNG dùng đúng semantic:
+  + Thanh thông báo trên cùng: Đang dùng <div class="header-top-bar">. Đúng ra nên dùng thẻ <section> hoặc trực tiếp bên trong <header>.
+  + Khu vực chọn vị trí: Dùng <div class="locationbox-v2">. Vì đây là một tiện ích bổ sung, có thể dùng thẻ <aside> hoặc <section> sẽ mang tính ngữ nghĩa cao hơn thẻ div trung tính.
+**2.**
+    
