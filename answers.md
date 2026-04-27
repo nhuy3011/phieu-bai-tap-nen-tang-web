@@ -127,3 +127,125 @@ Paint: Cuối cùng, hình ảnh sản phẩm và giá cả hiện lên hoàn ch
 - **Các Input types được sử dụng:**
   + type="text": Được dùng cho ô nhập từ khóa chính (ô có id="skw"). Đây là nơi người dùng gõ tên sản phẩm.
   + Thẻ ```<button>``` với type="submit": Dùng để kích hoạt việc gửi form (nút có aria-label="button suggest search").
+
+# PHẦN C — SUY LUẬN
+## Câu C1 (10đ) — Thiết kế cấu trúc
+```
+<!DOCTYPE html> <!-- Khai báo HTML5 -->
+<html lang="vi"> <!-- Ngôn ngữ trang là tiếng Việt -->
+<head>
+    <meta charset="UTF-8"> <!-- Hỗ trợ tiếng Việt -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive -->
+    <title>Chi tiết sản phẩm</title>
+</head>
+
+<body>
+
+    <header> <!-- header chứa phần đầu trang -->
+        <h1>Logo / Tên website</h1> <!-- h1 cho tiêu đề chính -->
+        <nav> <!-- nav vì đây là khu vực điều hướng -->
+            <ul> <!-- ul vì menu không có thứ tự -->
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Danh mục</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main> <!-- main chứa nội dung chính của trang -->
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb"> <!-- nav vì breadcrumb là điều hướng -->
+            <ol> <!-- ol vì breadcrumb có thứ tự cấp bậc -->
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Điện thoại</a></li>
+                <li>iPhone 16</li> <!-- item cuối không cần link -->
+            </ol>
+        </nav>
+        <section> <!-- section gom nhóm nội dung sản phẩm -->
+            <!-- Khu vực ảnh sản phẩm -->
+            <div> <!-- div dùng để layout -->
+                <figure> <!-- figure dùng cho hình ảnh minh họa -->
+                    <img src="#" alt="Ảnh sản phẩm 1"> <!-- ảnh -->
+                </figure>
+                <figure>
+                    <img src="#" alt="Ảnh sản phẩm 2">
+                </figure>
+                <figure>
+                    <img src="#" alt="Ảnh sản phẩm 3">
+                </figure>
+                <figure>
+                    <img src="#" alt="Ảnh sản phẩm 4">
+                </figure>
+                <figure>
+                    <img src="#" alt="Ảnh sản phẩm 5">
+                </figure>
+            </div>
+            <!-- Thông tin sản phẩm -->
+            <article> <!-- article vì đây là nội dung độc lập -->
+                <h2>Tên sản phẩm</h2> <!-- tiêu đề sản phẩm -->
+                <p>Giá: ...</p> <!-- giá là đoạn văn -->
+                <p>Đánh giá: ★★★★★</p> <!-- đánh giá -->
+                <p>Mô tả ngắn sản phẩm...</p> <!-- mô tả -->
+            </article>
+        </section>
+        <!-- Bảng thông số kỹ thuật -->
+        <section> <!-- section vì đây là phần nội dung riêng -->
+            <h2>Thông số kỹ thuật</h2>
+            <table> <!-- table vì dữ liệu dạng bảng -->
+                <thead> <!-- phần đầu bảng -->
+                    <tr>
+                        <th>Thuộc tính</th> <!-- tiêu đề cột -->
+                        <th>Giá trị</th>
+                    </tr>
+                </thead>
+                <tbody> <!-- nội dung bảng -->
+                    <tr>
+                        <td>CPU</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <td>RAM</td>
+                        <td>...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- Khu vực đánh giá / bình luận -->
+        <section> <!-- section vì nhóm các comment -->
+            <h2>Đánh giá & Bình luận</h2>
+
+            <article> <!-- mỗi comment là 1 article độc lập -->
+                <h3>Người dùng A</h3>
+                <p>Nội dung bình luận...</p>
+            </article>
+
+            <article>
+                <h3>Người dùng B</h3>
+                <p>Nội dung bình luận...</p>
+            </article>
+        </section>
+
+    </main>
+    <!-- Sidebar -->
+    <aside> <!-- aside vì nội dung phụ (sản phẩm tương tự) -->
+        <h2>Sản phẩm tương tự</h2>
+        <ul> <!-- danh sách sản phẩm -->
+            <li><a href="#">Sản phẩm 1</a></li>
+            <li><a href="#">Sản phẩm 2</a></li>
+            <li><a href="#">Sản phẩm 3</a></li>
+        </ul>
+    </aside>
+
+    <footer> <!-- footer chứa thông tin cuối trang -->
+        <p>Bản quyền © 2026</p>
+    </footer>
+</body>
+</html>
+```
+
+### Câu C2 (10đ) — So sánh & Tranh luận
+Quan điểm "chỉ dùng <div> và class" thực tế là một lối tư duy tắt có hại cho sự phát triển lâu dài của một sản phẩm web. Việc sử dụng Semantic HTML (HTML ngữ nghĩa) không hề tốn thời gian vô ích mà mang lại những giá trị kỹ thuật cốt lõi mà class không bao giờ thay thế được.
+  Thứ nhất, về tối ưu hóa công cụ tìm kiếm (SEO): Các công cụ như Google, Bing không hiểu được ý nghĩa của một class như .tieude-sanpham. Tuy nhiên, nếu bạn dùng thẻ <h1> hay <article>, các bot tìm kiếm sẽ ngay lập tức nhận diện được đâu là nội dung quan trọng nhất. Điều này giúp trang web có thứ hạng cao hơn trên kết quả tìm kiếm, một giá trị mà class không thể mang lại.
+  Thứ hai, về khả năng truy cập (Accessibility): Đối với người khiếm thị sử dụng trình đọc màn hình (Screen Readers), thẻ <div> hoàn toàn vô nghĩa. Khi dùng thẻ <nav>, <main> hay <button>, trình đọc màn hình sẽ thông báo chính xác cho người dùng biết họ đang ở đâu và có thể tương tác gì. Nếu chỉ dùng <div>, người dùng khuyết tật sẽ bị lạc lối trong một "mê cung" các khối dữ liệu không định danh.
+  Ví dụ cụ thể: Hãy tưởng tượng bạn tạo một danh sách thông số kỹ thuật. Nếu dùng <ul> và <li>, trình duyệt sẽ hiểu đây là một danh sách các mục liên quan. Nếu bạn dùng hàng loạt <div>, trình duyệt chỉ hiểu đó là các khối văn bản rời rạc. Khi người dùng muốn in trang web hoặc dùng chế độ "Reader Mode" trên trình duyệt, Semantic HTML sẽ giúp nội dung được dàn trang lại một cách gọn gàng và dễ đọc, còn cấu trúc div sẽ thường bị vỡ hoặc mất định dạng.
+  Tuy nhiên, <div> vẫn có chỗ đứng riêng: Thẻ <div> vẫn cực kỳ phù hợp khi chúng ta cần một vỏ bọc thuần túy cho mục đích CSS hoặc Layout (dàn trang) mà không mang ý nghĩa về mặt nội dung. Ví dụ, khi bạn cần một khối bao quanh để căn giữa trang web bằng Flexbox hoặc tạo hiệu ứng đổ bóng cho một vùng phức tạp, <div> chính là sự lựa chọn tốt nhất vì nó trung tính và không gây nhiễu cho cấu trúc ngữ nghĩa của tài liệu.
+Kết luận: Semantic HTML không chỉ là về việc đặt tên, đó là về việc xây dựng một trang web thông minh, nhân văn và thân thiện với máy móc.
