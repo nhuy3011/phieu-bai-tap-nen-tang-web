@@ -285,3 +285,56 @@ Kết luận: Semantic HTML không chỉ là về việc đặt tên, đó là v
 <img width="997" height="749" alt="Screenshot 2026-04-28 221305" src="https://github.com/user-attachments/assets/35a83bfc-89b4-4bbe-9d39-3d4a6b926764" />
 
 ## Câu A3 (5đ) — Khả năng tiếp cận
+1.Tại sao ```<label for="email">``` quan trọng cho trình đọc màn hình?
+- **Định danh ô nhập liệu:** Trình đọc màn hình (Screen Reader) không thể "nhìn" thấy giao diện. Khi người dùng khiếm thị điều hướng đến một ô nhập (input), nếu không có <label>, trình duyệt chỉ đọc là "Edit text" (Ô nhập văn bản), khiến họ không biết phải nhập gì (là Email, Họ tên hay Mật khẩu?).
+- **Liên kết logic:** Thuộc tính for của label phải khớp với id của input. Khi đó, trình đọc màn hình sẽ đọc: "Email, edit text" ngay khi người dùng chọn ô đó.
+- **Mở rộng vùng tương tác:** Với người dùng bị run tay hoặc dùng thiết bị nhỏ, việc click vào dòng chữ Label cũng sẽ kích hoạt con trỏ vào ô Input, giúp việc nhập liệu dễ dàng hơn.
+2. Khi nào dùng ```<fieldset>``` + ```<legend>```?
+- Bạn nên dùng bộ đôi này khi muốn nhóm các ô nhập liệu có liên quan chặt chẽ với nhau về mặt ý nghĩa, giúp biểu mẫu dài trở nên mạch lạc hơn.
+  + ```<fieldset>```: Đóng vai trò là một cái khung bao bọc nhóm thông tin.
+  + ```<legend>```: Đóng vai trò là tiêu đề của cái khung đó.
+- **Ví dụ cụ thể:** Trong trang Thương mại điện tử, bạn cần tách biệt "Thông tin cá nhân" và "Thông tin thanh toán"
+```
+<fieldset>
+    <legend>Thông tin giao hàng</legend>
+    <label for="addr">Địa chỉ:</label>
+    <input type="text" id="addr" name="addr">
+    
+    <label for="city">Thành phố:</label>
+    <select id="city" name="city">
+        <option value="hn">Hà Nội</option>
+    </select>
+</fieldset>
+```
+3. aria-label sử dụng vào lúc nào? Tại sao không nên dùng khi đã có <label>?
+- aria-label được dùng khi bạn muốn cung cấp thông tin cho trình đọc màn hình nhưng không muốn hiển thị văn bản đó trên giao diện. Trường hợp điển hình: Các nút bấm chỉ có Icon (như nút 🛒 để đặt hàng hoặc nút 🔍 để tìm kiếm). Người thường nhìn icon sẽ hiểu, nhưng trình đọc màn hình cần aria-label="Đặt hàng" để đọc lên cho người khiếm thị.
+- Tại sao KHÔNG dùng cùng lúc với ```<label>```? Gây nhiễu thông tin: Nếu có cả hai, trình đọc màn hình có thể bị "lú", đọc lặp lại thông tin hoặc ưu tiên cái này mà bỏ cái kia, gây bối rối cho người dùng.
+Nguyên tắc ưu tiên: HTML chuẩn (```<label>```) luôn tốt hơn và ổn định hơn các thuộc tính bổ trợ (aria-). aria-label chỉ là giải pháp "cứu cánh" khi cấu trúc thiết kế không cho phép hiển thị chữ trên màn hình.
+
+## Câu A4 (5đ) — Media
+1. Thuộc tính loading="lazy" trên thẻ ```<img>```
+- Giải thích: Đây là kỹ thuật "tải chậm". Thay vì tải tất cả ảnh trên trang web ngay khi vừa mở (gây nặng máy), trình duyệt sẽ chỉ tải ảnh khi người dùng cuộn trang đến gần vị trí của tấm ảnh đó.
+- Cải thiện:
+  + Tốc độ tải trang (Page Speed): Giảm dung lượng dữ liệu phải tải ban đầu, giúp trang web hiện ra nhanh hơn.
+  + Tiết kiệm băng thông: Cực kỳ hữu ích cho người dùng sử dụng mạng 3G/4G vì họ không phải trả tiền cho những tấm ảnh mà họ chưa kịp cuộn tới để xem.
+- Khi nào KHÔNG nên dùng: Không dùng cho những ảnh ở đầu trang (Above the fold) – tức là những ảnh người dùng thấy ngay khi vừa mở web (như Logo hoặc ảnh Banner chính). Nếu dùng lazy-load ở đây, người dùng sẽ thấy một khoảng trắng trước khi ảnh hiện ra, gây trải nghiệm xấu.
+2.Thẻ ```<video>``` và các định dạng
+- Tại sao nên dùng nhiều thẻ ```<source>```? Vì mỗi trình duyệt (Chrome, Safari, Firefox) hỗ trợ các loại tệp khác nhau. Khi bạn cung cấp nhiều nguồn, trình duyệt sẽ tự chọn định dạng tốt nhất mà nó có thể đọc được. Nếu định dạng thứ nhất lỗi, nó sẽ thử đến định dạng thứ hai.
+- 3 định dạng video phổ biến:
+  + MP4 (.mp4): Phổ biến nhất, tương thích với hầu hết mọi trình duyệt và thiết bị.
+  + WebM (.webm): Do Google phát triển, dung lượng nhẹ hơn MP4 nhưng chất lượng vẫn rất tốt, tối ưu cho web.
+  + Ogg (.ogv): Định dạng mã nguồn mở, thường dùng làm phương án dự phòng.
+3. Thuộc tính alt (Alternative Text)
+- Công dụng: Hiển thị văn bản thay thế nếu ảnh bị lỗi không tải được và giúp trình đọc màn hình (cho người khiếm thị) mô tả nội dung ảnh. Ngoài ra, nó giúp Google hiểu nội dung ảnh để làm SEO tốt hơn.
+- Cách viết alt tốt cho 3 trường hợp:
+  + Ảnh sản phẩm iPhone 16: alt="Điện thoại iPhone 16 màu xanh Teal dung lượng 128GB mặt trước và sau" (Càng chi tiết càng tốt cho người mua hàng).
+  + Ảnh trang trí (Decorative): alt="" (Để trống). Nếu ảnh chỉ để làm cảnh, không mang nội dung, ta để trống để trình đọc màn hình bỏ qua, tránh làm phiền người dùng.
+  + Biểu đồ doanh thu Q1/2026: alt="Biểu đồ cột hiển thị doanh thu tăng trưởng 15% trong Quý 1 năm 2026" (Phải mô tả được thông tin chính mà biểu đồ đang biểu diễn).
+
+ ##  Câu A5 (5đ) — So sánh ```<figure>```với```<img>```
+- **Dùng Cách 1 khi** hình ảnh chỉ đóng vai trò là một thành phần phụ trợ hoặc biểu tượng đi kèm với văn bản, không cần chú thích riêng biệt và nếu thiếu nó thì nội dung chính vẫn không bị mất ý nghĩa hoàn toàn. Đặc điểm: Đơn giản, nhanh gọn, thường dùng cho các hình ảnh mang tính nhận diện hoặc trang trí.
+  + Ví dụ thực tế 1: Logo công ty trên thanh Header. Logo này chỉ cần thuộc tính alt để định danh, không bao giờ cần dòng chú thích ở dưới.
+  + Ví dụ thực tế 2: Icon tính năng (ví dụ: Icon hình chiếc xe tải bên cạnh dòng chữ "Giao hàng miễn phí").
+- **Dùng Cách 2 khi** hình ảnh là một đơn vị nội dung độc lập (self-contained). Dòng chú thích (figcaption) giúp bổ sung thông tin quan trọng cho ảnh, và khối này có thể di chuyển đến vị trí khác trong bài viết mà không làm thay đổi ý nghĩa của mạch văn chính. Đặc điểm: Tăng tính ngữ nghĩa (Semantic), giúp trình duyệt và công cụ tìm kiếm hiểu rằng ảnh và chú thích là một thực thể thống nhất.
+  + Ví dụ thực tế 1: Ảnh chi tiết sản phẩm trong bài đánh giá (Review). Ví dụ: Ảnh chụp cụm camera của iPhone kèm chú thích "Cận cảnh cảm biến camera chính 48MP".
+  + Ví dụ thực tế 2: Biểu đồ hoặc sơ đồ minh họa trong bài tin tức công nghệ. Ví dụ: Sơ đồ cấu trúc chip A18 kèm chú thích "Sơ đồ kiến trúc 6 nhân của chip Apple A18".
