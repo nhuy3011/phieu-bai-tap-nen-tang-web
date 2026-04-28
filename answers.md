@@ -338,3 +338,40 @@ Nguyên tắc ưu tiên: HTML chuẩn (```<label>```) luôn tốt hơn và ổn 
 - **Dùng Cách 2 khi** hình ảnh là một đơn vị nội dung độc lập (self-contained). Dòng chú thích (figcaption) giúp bổ sung thông tin quan trọng cho ảnh, và khối này có thể di chuyển đến vị trí khác trong bài viết mà không làm thay đổi ý nghĩa của mạch văn chính. Đặc điểm: Tăng tính ngữ nghĩa (Semantic), giúp trình duyệt và công cụ tìm kiếm hiểu rằng ảnh và chú thích là một thực thể thống nhất.
   + Ví dụ thực tế 1: Ảnh chi tiết sản phẩm trong bài đánh giá (Review). Ví dụ: Ảnh chụp cụm camera của iPhone kèm chú thích "Cận cảnh cảm biến camera chính 48MP".
   + Ví dụ thực tế 2: Biểu đồ hoặc sơ đồ minh họa trong bài tin tức công nghệ. Ví dụ: Sơ đồ cấu trúc chip A18 kèm chú thích "Sơ đồ kiến trúc 6 nhân của chip Apple A18".
+ 
+## PHẦN C — PHÂN TÍCH & SUY LUẬN (20 điểm)
+### Câu C1 (10đ) — Dạng gỡ lỗi
+- **Lỗi 1:** Dòng 2 — Input "Tên" không có ```<label for="...">``` và thiếu thuộc tính id, vi phạm accessibility.
+Sửa: ```<label for="name">```Tên:```</label> <input type="text" id="name" name="name" required>```
+- **Lỗi 2:** Dòng 4 — Input "Email" thiếu thẻ ```<label>```, thiếu thuộc tính required và name.
+Sửa: ```<label for="email">Email:</label> <input type="email" id="email" name="email" placeholder="Email của bạn" required>```
+- **Lỗi 3:** Dòng 6 — Input "Mật khẩu" thiếu thẻ ```<label>``` và thiếu thuộc tính minlength để đảm bảo độ mạnh cơ bản.
+Sửa: ```<label for="pw">Mật khẩu:</label> <input type="password" id="pw" name="password" minlength="8" required>```
+- **Lỗi 4:** Dòng 7 — Input "Nhập lại mật khẩu" thiếu thẻ <label> và không có định danh để phân biệt với ô mật khẩu chính.
+Sửa: ```<label for="re-pw">Nhập lại mật khẩu:</label> <input type="password" id="re-pw" name="re-password" required>```
+- **Lỗi 5:** Dòng 9 — Input "Phone" dùng type="text". Nên dùng type="tel" để hỗ trợ bàn phím di động và thêm pattern để xác thực.
+Sửa: ```<label for="tel">Phone:</label> <input type="tel" id="tel" name="phone" pattern="[0-9]{10}">```
+- **Lỗi 6:** Dòng 11 — Thẻ ```<select>``` thiếu ```<label>``` và thiếu thuộc tính name để gửi dữ liệu lên máy chủ.
+Sửa: ```<label for="city">Thành phố:</label> <select id="city" name="city">...</select>```
+- **Lỗi 7:** Dòng 16 — Thẻ ```<label>``` bao quanh văn bản nhưng thiếu thẻ ```<input type="checkbox">``` bên trong để người dùng tương tác.
+Sửa: ```<label><input type="checkbox" name="agree" required> Tôi đồng ý điều khoản</label>```
+- **Lỗi 8:** Dòng 20 — Sử dụng ```<input type="submit">```. Phương pháp hay nhất hiện nay là dùng thẻ <button type="submit"> để dễ dàng tùy biến giao diện và chứa được icon/media.
+Sửa: ```<button type="submit">Gửi</button>```
+## Câu C2 (10đ) — Xác thực thiết kế chiến lược
+1. Viết Pattern (Regex) cho CMND/CCCD và Số tài khoản
+- CMND/CCCD (Đúng 12 chữ số): pattern="[0-9]{12}" hoặc pattern="\d{12}"
+Giải thích: [0-9] giới hạn chỉ nhập số, {12} bắt buộc độ dài chính xác là 12 ký tự.
+- Số tài khoản (10-15 chữ số): pattern="[0-9]{10,15}"
+Giải thích: {10,15} cho phép độ dài linh hoạt trong khoảng từ 10 đến 15 ký tự.
+2. Xác thực HTML5 có đủ an toàn cho ứng dụng Ngân hàng?
+- Câu trả lời là: KHÔNG.
+- Xác thực HTML5 (Frontend) chỉ đóng vai trò hỗ trợ trải nghiệm người dùng (UX). Nó giúp người dùng biết họ nhập sai ngay lập tức mà chưa cần gửi dữ liệu đi. Tuy nhiên, nó cực kỳ dễ bị qua mặt. Một người dùng có kiến thức cơ bản về IT có thể nhấn F12, xóa thuộc tính required hoặc pattern trong mã nguồn, hoặc sử dụng các công cụ như Postman để gửi dữ liệu trực tiếp lên máy chủ mà không cần thông qua trình duyệt.
+3. 3 loại xác thực mà HTML5 KHÔNG THỂ làm được (Cần JavaScript)
+- So sánh các trường dữ liệu: Ví dụ: Kiểm tra "Mật khẩu" và "Nhập lại mật khẩu" có trùng khớp hay không.
+- Kiểm tra tính khả dụng theo thời gian thực: Ví dụ: Kiểm tra xem "Tên đăng nhập" đã tồn tại trong cơ sở dữ liệu chưa ngay khi người dùng đang gõ (phải dùng JS kết hợp với AJAX/API).
+- Logic xác thực phụ thuộc: Ví dụ: Nếu người dùng chọn quốc gia là "Việt Nam" thì ô "Số điện thoại" phải bắt đầu bằng "+84".
+4. 2 rủi ro bảo mật nếu chỉ xác thực trên Frontend (không có Backend)
+Nếu bạn bỏ qua việc kiểm tra dữ liệu ở phía máy chủ (Backend), ngân hàng sẽ đối mặt với những hiểm họa sau:
+- Rủi ro 1: Tấn công tiêm nhiễm dữ liệu (Injected Data/SQL Injection): Kẻ tấn công có thể gửi các đoạn mã độc thay vì con số qua các công cụ can thiệp sâu. Nếu máy chủ không kiểm tra lại và trực tiếp lưu vào database, toàn bộ hệ thống dữ liệu có thể bị xóa hoặc rò rỉ.
+- Rủi ro 2: Sai lệch logic nghiệp vụ và dữ liệu rác: Kẻ xấu có thể gửi số tài khoản bằng chữ hoặc số tiền là một số âm. Nếu Backend không chặn lại, hệ thống sẽ thực hiện các giao dịch lỗi, dẫn đến thất thoát tài chính hoặc làm hỏng tính toàn vẹn của dữ liệu khách hàng.
+
