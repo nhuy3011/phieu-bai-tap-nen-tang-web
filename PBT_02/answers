@@ -1,8 +1,7 @@
 # PBT
 # PHẦN A — KIỂM TRA ĐỌC HIỂU (25 điểm)
 ## Câu A1 (5đ) — Các loại đầu vào
-**1.** type="text" → Ô nhập văn bản một dòng cơ bản → Không tự xác thực → Dùng để nhập Họ tên khách hàng hoặc Địa chỉ nhận hàng.
-
+**1.** type="text" → Ô nhập văn bản một dòng cơ bản → Không tự xác thực → Dùng để nhập Họ tên khách hàng hoặc Địa chỉ nhận hàng
 **2.** type="email" → Ô nhập văn bản, tự động kiểm tra định dạng phải có dấu @ và tên miền → Tự động xác thực định dạng email → Dùng cho Form đăng nhập hoặc Đăng ký nhận bản tin khuyến mãi.
 
 **3.** type="password" → Ô nhập văn bản nhưng ký tự hiển thị dưới dạng dấu chấm hoặc sao để bảo mật → Không tự xác thực (thường kết hợp thuộc tính minlength) → Dùng để Nhập mật khẩu tài khoản.
