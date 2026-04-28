@@ -1,3 +1,4 @@
+# PBT_01
 # PHẦN A — KIỂM TRA ĐỌC HIỂU
 ## Câu A1 (5đ) — HTTP & Browser
 ### 1. Khi gõ https://shopee.vn vào trình duyệt và nhấn Enter, thứ tự ít nhất 5 bước xảy ra (từ DNS lookup đến render) là:
@@ -249,3 +250,38 @@ Quan điểm "chỉ dùng <div> và class" thực tế là một lối tư duy t
   Ví dụ cụ thể: Hãy tưởng tượng bạn tạo một danh sách thông số kỹ thuật. Nếu dùng <ul> và <li>, trình duyệt sẽ hiểu đây là một danh sách các mục liên quan. Nếu bạn dùng hàng loạt ```<div>```, trình duyệt chỉ hiểu đó là các khối văn bản rời rạc. Khi người dùng muốn in trang web hoặc dùng chế độ "Reader Mode" trên trình duyệt, Semantic HTML sẽ giúp nội dung được dàn trang lại một cách gọn gàng và dễ đọc, còn cấu trúc div sẽ thường bị vỡ hoặc mất định dạng.
   Tuy nhiên, ```<div>``` vẫn có chỗ đứng riêng: Thẻ ```<div>``` vẫn cực kỳ phù hợp khi chúng ta cần một vỏ bọc thuần túy cho mục đích CSS hoặc Layout (dàn trang) mà không mang ý nghĩa về mặt nội dung. Ví dụ, khi bạn cần một khối bao quanh để căn giữa trang web bằng Flexbox hoặc tạo hiệu ứng đổ bóng cho một vùng phức tạp, ```<div>``` chính là sự lựa chọn tốt nhất vì nó trung tính và không gây nhiễu cho cấu trúc ngữ nghĩa của tài liệu.
 Kết luận: Semantic HTML không chỉ là về việc đặt tên, đó là về việc xây dựng một trang web thông minh, nhân văn và thân thiện với máy móc.
+
+# PBT_02
+# PHẦN A — KIỂM TRA ĐỌC HIỂU (25 điểm)
+## Câu A1 (5đ) — Các loại đầu vào
+1.type="text" → Ô nhập văn bản một dòng cơ bản → Không tự xác thực → Dùng để nhập Họ tên khách hàng hoặc Địa chỉ nhận hàng.
+2.type="email" → Ô nhập văn bản, tự động kiểm tra định dạng phải có dấu @ và tên miền → Tự động xác thực định dạng email → Dùng cho Form đăng nhập hoặc Đăng ký nhận bản tin khuyến mãi.
+3.type="password" → Ô nhập văn bản nhưng ký tự hiển thị dưới dạng dấu chấm hoặc sao để bảo mật → Không tự xác thực (thường kết hợp thuộc tính minlength) → Dùng để Nhập mật khẩu tài khoản.
+4.type="number" → Ô nhập số, có nút tăng/giảm ở cạnh phải → Tự động xác thực chỉ cho phép nhập số, có thể giới hạn min và max → Dùng để Chọn số lượng sản phẩm trong giỏ hàng.
+5.type="tel" → Ô nhập văn bản tối ưu cho bàn phím số trên điện thoại → Không tự xác thực mặc định (thường dùng kèm thuộc tính pattern để kiểm tra số điện thoại) → Dùng để Nhập số điện thoại giao hàng.
+6.type="date" → Hiển thị giao diện chọn ngày tháng năm từ một bộ lịch thả xuống → Tự động xác thực định dạng ngày hợp lệ → Dùng để Chọn ngày hẹn giao hàng hoặc Nhập ngày sinh để nhận quà thành viên.
+7.type="checkbox" → Ô vuông nhỏ để tích chọn hoặc bỏ chọn → Không tự xác thực → Dùng để Chọn nhiều tiêu chí bộ lọc (ví dụ: lọc theo màu sắc: Đen, Trắng, Đỏ) hoặc Đồng ý điều khoản mua hàng.
+8.type="radio" → Hình tròn nhỏ, chỉ cho phép chọn duy nhất một lựa chọn trong một nhóm → Không tự xác thực → Dùng để Chọn phương thức thanh toán (ví dụ: COD, Chuyển khoản, Ví điện tử).
+9.type="file" → Nút nhấn để mở cửa sổ chọn tệp tin từ thiết bị → Tự động xác thực định dạng tệp nếu dùng thuộc tính accept → Dùng để Tải ảnh minh họa khi gửi đánh giá sản phẩm (Review).
+10.type="search" → Giao diện giống ô text nhưng có thêm nút "x" để xóa nhanh nội dung đã nhập → Không tự xác thực → Dùng cho Thanh tìm kiếm sản phẩm ở đầu trang web.
+
+## Câu A2 (5đ) — Thuộc tính xác thực
+**Dự đoán**
+- TH1: Bị chặn (Lỗi). Thuộc tính required bắt buộc trường này không được để trống. Nếu không có dữ liệu, trình duyệt sẽ báo lỗi "Please fill out this field".
+- TH2: Bị chặn (Lỗi). type="email" yêu cầu dữ liệu phải có định dạng địa chỉ email (có dấu @). Chuỗi "abc" thiếu ký tự này nên không hợp lệ.
+- TH3: Bị chặn (Lỗi). Thuộc tính max="10" giới hạn giá trị lớn nhất là 10. Số 15 vượt quá giới hạn này nên trình duyệt sẽ yêu cầu nhập giá trị nhỏ hơn hoặc bằng 10.
+- TH4: Bị chặn (Lỗi). pattern="[0-9]{10}" yêu cầu dữ liệu phải là đúng 10 chữ số. "abc123" chứa chữ cái và chỉ có 6 ký tự, hoàn toàn sai so với mẫu (Regex).
+- TH5: Bị chặn (Lỗi). minlength="8" yêu cầu tối thiểu phải có 8 ký tự. "123" chỉ có 3 ký tự nên không đủ độ dài tối thiểu theo quy định.
+**Xác thực**
+- TH1 đúng với dự đoán
+<img width="1919" height="868" alt="Screenshot 2026-04-28 220537" src="https://github.com/user-attachments/assets/db8bc775-4e88-4d2f-b54a-251a33a7e296" />
+- TH2 đúng với dự đoán
+<img width="1375" height="735" alt="Screenshot 2026-04-28 220837" src="https://github.com/user-attachments/assets/c64a6582-9a85-4414-bf96-c283b0baa905" />
+- TH3 đúng với dự đoán
+<img width="1499" height="797" alt="Screenshot 2026-04-28 220920" src="https://github.com/user-attachments/assets/4f8ace59-5c6f-4a97-b9c1-59825dc99d5d" />
+- TH4 đúng với dự đoán
+<img width="801" height="707" alt="image" src="https://github.com/user-attachments/assets/000aefac-6e53-4ba4-ac79-dd344c5469a3" />
+- TH5 đúng với dự đoán
+<img width="997" height="749" alt="Screenshot 2026-04-28 221305" src="https://github.com/user-attachments/assets/35a83bfc-89b4-4bbe-9d39-3d4a6b926764" />
+
+## Câu A3 (5đ) — Khả năng tiếp cận
