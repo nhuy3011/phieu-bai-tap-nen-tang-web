@@ -123,3 +123,20 @@ Sửa: ```<button type="submit">Gửi</button>```
 **1. Viết Pattern (Regex) cho CMND/CCCD và Số tài khoản**
 - CMND/CCCD (Đúng 12 chữ số): pattern="[0-9]{12}" hoặc pattern="\d{12}"
 Giải thích: [0-9] giới hạn chỉ nhập số, {12} bắt buộc độ dài chính xác là 12 ký tự.
+- Số tài khoản (10-15 chữ số): pattern="[0-9]{10,15}"
+Giải thích: {10,15} cho phép độ dài linh hoạt trong khoảng từ 10 đến 15 ký tự.
+
+**2. Xác thực HTML5 có đủ an toàn cho ứng dụng Ngân hàng?**
+- Câu trả lời là: KHÔNG.
+- Xác thực HTML5 (Frontend) chỉ đóng vai trò hỗ trợ trải nghiệm người dùng (UX). Nó giúp người dùng biết họ nhập sai ngay lập tức mà chưa cần gửi dữ liệu đi. Tuy nhiên, nó cực kỳ dễ bị qua mặt. Một người dùng có kiến thức cơ bản về IT có thể nhấn F12, xóa thuộc tính required hoặc pattern trong mã nguồn, hoặc sử dụng các công cụ như Postman để gửi dữ liệu trực tiếp lên máy chủ mà không cần thông qua trình duyệt.
+
+**3. 3 loại xác thực mà HTML5 KHÔNG THỂ làm được (Cần JavaScript)**
+- So sánh các trường dữ liệu: Ví dụ: Kiểm tra "Mật khẩu" và "Nhập lại mật khẩu" có trùng khớp hay không.
+- Kiểm tra tính khả dụng theo thời gian thực: Ví dụ: Kiểm tra xem "Tên đăng nhập" đã tồn tại trong cơ sở dữ liệu chưa ngay khi người dùng đang gõ (phải dùng JS kết hợp với AJAX/API).
+- Logic xác thực phụ thuộc: Ví dụ: Nếu người dùng chọn quốc gia là "Việt Nam" thì ô "Số điện thoại" phải bắt đầu bằng "+84".
+
+**4. 2 rủi ro bảo mật nếu chỉ xác thực trên Frontend (không có Backend)**
+Nếu bạn bỏ qua việc kiểm tra dữ liệu ở phía máy chủ (Backend), ngân hàng sẽ đối mặt với những hiểm họa sau:
+- Rủi ro 1: Tấn công tiêm nhiễm dữ liệu (Injected Data/SQL Injection): Kẻ tấn công có thể gửi các đoạn mã độc thay vì con số qua các công cụ can thiệp sâu. Nếu máy chủ không kiểm tra lại và trực tiếp lưu vào database, toàn bộ hệ thống dữ liệu có thể bị xóa hoặc rò rỉ.
+- Rủi ro 2: Sai lệch logic nghiệp vụ và dữ liệu rác: Kẻ xấu có thể gửi số tài khoản bằng chữ hoặc số tiền là một số âm. Nếu Backend không chặn lại, hệ thống sẽ thực hiện các giao dịch lỗi, dẫn đến thất thoát tài chính hoặc làm hỏng tính toàn vẹn của dữ liệu khách hàng.
+
