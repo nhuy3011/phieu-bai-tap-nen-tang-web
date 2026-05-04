@@ -35,7 +35,7 @@
 TH1 đúng với dự đoán
 <img width="1919" height="868" alt="Screenshot 2026-04-28 220537" src="https://github.com/user-attachments/assets/db8bc775-4e88-4d2f-b54a-251a33a7e296" />
 TH2 đúng với dự đoán
-<img width="1375" height="735" alt="Screenshot 2026-04-28 220837" src="https://github.com/user-attachments/assets/c64a6582-9a85-4414-bf96-c283b0baa905" />
+<img width="1375" height="735" alt="Screenshot 2026-04-28 220837" src="https://github.com/user-attachments/assets/c64a6582-9a85-4414-bf96-c283b0baa905" /> 
 TH3 đúng với dự đoán
 <img width="1499" height="797" alt="Screenshot 2026-04-28 220920" src="https://github.com/user-attachments/assets/4f8ace59-5c6f-4a97-b9c1-59825dc99d5d" />
 TH4 đúng với dự đoán
