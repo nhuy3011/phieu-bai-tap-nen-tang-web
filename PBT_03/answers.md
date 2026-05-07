@@ -74,3 +74,5 @@ Dự đoán kết quả (Phân tích bộ chọn):
 **Ảnh àm hình**
 <img width="1802" height="587" alt="Screenshot 2026-05-07 105922" src="https://github.com/user-attachments/assets/21ab9411-c6ce-4437-9916-e337b9de6295" />
 
+## Câu A3 (7đ) — Box Model — Tính toán kích thước
+
