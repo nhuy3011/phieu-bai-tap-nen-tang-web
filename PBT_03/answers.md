@@ -118,4 +118,15 @@ Dự đoán kết quả (Phân tích bộ chọn):
 
 # PHẦN B — THỰC HÀNH CODE (55 điểm)
 ## Bài B2 (20đ) — Box Model Lab
-
+- Phần 1 — Chứng minh Box Model:
+  + Hộp 1 (content-box): chiều rộng thực tế = 350px (Đo từ DevTools).Cách tính: 300(width) + 20*2(padding) + 5*2 (border) = 350px.
+     <img width="1859" height="902" alt="Screenshot 2026-05-10 213250" src="https://github.com/user-attachments/assets/146efab1-3c4d-4a96-b5fb-502c574551ad" />
+  + Hộp 2 (border-box): chiều rộng thực tế = 300px (Đo từ DevTools).Cách tính: Trình duyệt tự động co phần content lại còn 250px để tổng độ rộng luôn là 300px.
+    <img width="1841" height="889" alt="Screenshot 2026-05-10 213352" src="https://github.com/user-attachments/assets/93e35222-faba-433b-988d-7376e8000bd0" />
+  + Giải thích sự khác biệt: content-box chỉ áp dụng kích thước lên phần nội dung, khiến hộp bị phình to khi thêm padding/border. Trong khi đó, border-box bao gồm cả padding và border vào trong kích thước đã định sẵn, giúp kiểm soát bố cục chính xác hơn.
+  
+-Phần 2 — Bố cục 3 cột:
+  + Khi sử dụng border-box: Tổng chiều rộng là 250 + 500 + 250 = 1000px. Cả 3 cột nằm thẳng hàng hoàn hảo.
+    <img width="1828" height="859" alt="Screenshot 2026-05-10 213721" src="https://github.com/user-attachments/assets/251c4321-2053-4e8c-a838-8229666ace45" />
+  + Nếu KHÔNG sử dụng border-box: Tổng chiều rộng sẽ bị đẩy lên thành 1000 + (15*2) + (20*2) + (15**2) = 1100px. Kết quả là cột bên phải sẽ bị đẩy xuống dòng dưới vì container chỉ rộng 1000px.
+     <img width="1832" height="891" alt="Screenshot 2026-05-10 214224" src="https://github.com/user-attachments/assets/1809c48a-e37a-41f7-9c7a-d1fd2a50f604" />
