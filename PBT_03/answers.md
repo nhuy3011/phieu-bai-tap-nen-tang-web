@@ -75,4 +75,44 @@ Dự đoán kết quả (Phân tích bộ chọn):
 <img width="1802" height="587" alt="Screenshot 2026-05-07 105922" src="https://github.com/user-attachments/assets/21ab9411-c6ce-4437-9916-e337b9de6295" />
 
 ## Câu A3 (7đ) — Box Model — Tính toán kích thước
+**Trường hợp 1: content-box (Mặc định)**
+- Trong chế độ này, width chỉ tính cho phần sản phẩm (content). Padding và Border sẽ đắp thêm vào bên ngoài.
+    + Chiều rộng hiển thị (Visible Width): 400(width) + 20*2(padding) + 5*2(border) = 450px
+    + Không gian chiếm trên trang (Total Space):450(chiều rộng hiển thị) + 10*2(margin) = 470px
+
+**Trường hợp 2: border-box**
+- Trong chế độ này, width là con số cuối cùng của chiếc hộp (bao gồm cả Border và Padding). Nội dung bên trong sẽ tự co lại.
+    + Chiều rộng hiển thị (Visible Width): 400px
+    + Kích thước content thực tế: 400 - 20*2(padding) - 5*2(border) = 350px
+    + Không gian chiếm trên trang (Total Space): 400(chiều rộng hiển thị) + 10*2(margin) = 420px
+
+**Trường hợp 3: Margin Collapse**
+- Khoảng cách giữa box-a và box-b: 40px
+- Giải thích: Trong CSS, khi hai phần tử dạng khối (block) xếp chồng lên nhau, các lề dọc (vertical margins) sẽ bị "hòa tan" vào nhau thay vì cộng dồn. Trình duyệt sẽ so sánh và chọn giá trị lớn nhất (trong trường hợp này là 40px > 25px). Điều này giúp tránh việc tạo ra những khoảng trắng quá lớn giữa các đoạn văn bản.
+
+**Nâng cao: Margin âm.**
+- Nếu .box-a có margin-bottom: -10px và .box-b có margin-top: 40px:
+    + Khoảng cách: 30px
+    + Cách tính: Khi có sự xuất hiện của số âm trong hiện tượng collapse, công thức sẽ là:{Giá trị dương lớn nhất} + {Giá trị âm nhỏ nhất}
+    + Ở đây: 40px + (-10px) = 30px.
+    + Góc nhìn thực tế: Margin âm thường được dùng để kéo một phần tử lại gần (hoặc đè lên) phần tử khác, cực kỳ hữu ích khi bạn muốn tạo các hiệu ứng thiết kế phá cách!
+
+## Câu A4 (5đ) — Tính đặc hiệu (Độ ưu tiên)
+**1. Tính toán điểm đặc hiệu (Specificity Score)**
+- Chúng ta dùng hệ thức (a, b, c) để tính điểm:
+  + a (ID): Các lựa chọn dùng #id.
+  + b (Class/Attribute/Pseudo-class): Các lựa chọn dùng .class, [type], :hover.
+  + c (Element): Các lựa chọn dùng thẻ như p, div, h1.
+  
+**2. Element sẽ có màu gì? Giải thích**
+- Phần tử sẽ có màu đỏ
+- **Giải thích:** Trình duyệt so sánh điểm từ trái sang phải. Rule C có 1 điểm ở cột ID, trong khi các quy tắc khác đều bằng 0. Trong CSS, 1 điểm ID "nặng" hơn bất kỳ số lượng Class hay Element nào cộng lại (không bao giờ có chuyện 11 thẻ Class thắng được 1 ID). Do đó, Rule C thắng tuyệt đối.
+
+**3. Nếu thêm ```<p class="price" id="main-price" style="color: orange;">```, phần tử có màu gì?**
+- Phần tử sẽ có màu cam
+- **Giải thích:** Inline style (viết trực tiếp vào thuộc tính style="" của HTML) có độ ưu tiên cao hơn tất cả các bộ chọn trong file CSS bên ngoài. Nếu coi Specificity là (a, b, c) thì Inline style nằm ở cột thứ tư bên trái: (1, 0, 0, 0).
+
+**4. Nếu thêm Quy tắc A !important, phần tử có màu gì? Tại sao?**
+- Phần tử sẽ có màu đen
+- **Giải thích:** !important là "nút bấm hạt nhân" trong CSS. Nó phá vỡ mọi quy tắc tính điểm thông thường và ép trình duyệt phải ưu tiên thuộc tính đó. Dù Rule A có điểm đặc hiệu thấp nhất (0,0,1), nhưng khi có !important, nó sẽ đè bẹp cả Inline style và ID.
 
