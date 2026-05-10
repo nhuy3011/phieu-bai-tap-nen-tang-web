@@ -116,3 +116,6 @@ Dự đoán kết quả (Phân tích bộ chọn):
 - Phần tử sẽ có màu đen
 - **Giải thích:** !important là "nút bấm hạt nhân" trong CSS. Nó phá vỡ mọi quy tắc tính điểm thông thường và ép trình duyệt phải ưu tiên thuộc tính đó. Dù Rule A có điểm đặc hiệu thấp nhất (0,0,1), nhưng khi có !important, nó sẽ đè bẹp cả Inline style và ID.
 
+# PHẦN B — THỰC HÀNH CODE (55 điểm)
+## Bài B2 (20đ) — Box Model Lab
+
