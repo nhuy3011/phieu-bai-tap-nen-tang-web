@@ -159,5 +159,17 @@ Dự đoán kết quả (Phân tích bộ chọn):
 - Giải thích: Khi các quy tắc có điểm đặc hiệu khác nhau, trình duyệt luôn chọn quy tắc có điểm cao nhất bất kể nó nằm ở đầu hay cuối file CSS. Thứ tự viết code (ai viết sau người đó thắng) chỉ có tác dụng khi hai quy tắc có cùng số điểm đặc hiệu.
 
 # PHẦN C — DEBUG & SUY LUẬN (20 điểm)
+## Câu C1 (10đ) — Debug CSS Layout
+1. Tính chiều rộng thực tế của sidebar và content (content-box!)
+   - Sidebar: 300(width) + 20*2(padding) + 1*2(border) = 342px
+   - Content: 660(width) + 30*2 (padding) + 1*2 (border) = 722px
 
-   
+2. Giải thích tại sao layout bị vỡ
+- Tổng chiều rộng thực tế của hai khối là: 342px + 722px = 1064px
+- Trong khi đó, .container chỉ rộng 960px. Vì 1064 > 960, không gian không đủ chỗ chứa nên trình duyệt bắt buộc phải đẩy khối .content xuống dòng mới để hiển thị.
+
+3. Đưa ra 2 cách sửa khác nhau (1 cách dùng border-box, 1 cách không dùng)
+   - Cách 1: Sử dụng border-box. Chúng ta giữ nguyên thông số mong muốn, chỉ cần đổi cách trình duyệt tính toán bằng box-sizing: border-box. Tuy nhiên, vì 300 + 660 = 960, vừa khít 100% chiều rộng, layout vẫn sẽ rất dễ vỡ nếu có sai lệch 1px. Tốt nhất ta nên để tổng width nhỏ hơn hoặc bằng 960.
+   - Cách 2: Không dùng border-box (Tính toán thủ công). Ta phải trừ bớt phần Padding và Border ra khỏi width ban đầu: 
+     + Width mới Sidebar: 300 - 40 (padding) - 2 (border) = 258px
+     + Width mới Content: 660 - 60 (padding) - 2 (border) = 598px
