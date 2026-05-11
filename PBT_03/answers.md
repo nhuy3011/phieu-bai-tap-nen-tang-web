@@ -151,10 +151,13 @@ Dự đoán kết quả (Phân tích bộ chọn):
 - Tại sao? Vì quy tắc số 10 có điểm đặc hiệu cao nhất (1, 2, 1). Trong CSS, trình duyệt so sánh từ trái sang phải. Chỉ cần cột ID (số 1) lớn hơn là sẽ thắng, nếu bằng nhau mới xét đến cột Class và sau cùng là Element.
 
 3. Chụp screenshot kết quả
-  
+  <img width="1835" height="898" alt="Screenshot 2026-05-11 083806" src="https://github.com/user-attachments/assets/ac40d4f4-d87c-4221-915b-3a8365e35381" />
+ <img width="1846" height="893" alt="B3-2" src="https://github.com/user-attachments/assets/c7d8b752-5319-4135-b364-999e09afa81f" />
+
 4. Thay đổi thứ tự rules trong CSS file. Kết quả có đổi không? Giải thích.
 - Kết quả có đổi không? KHÔNG.
 - Giải thích: Khi các quy tắc có điểm đặc hiệu khác nhau, trình duyệt luôn chọn quy tắc có điểm cao nhất bất kể nó nằm ở đầu hay cuối file CSS. Thứ tự viết code (ai viết sau người đó thắng) chỉ có tác dụng khi hai quy tắc có cùng số điểm đặc hiệu.
 
+# PHẦN C — DEBUG & SUY LUẬN (20 điểm)
 
    
