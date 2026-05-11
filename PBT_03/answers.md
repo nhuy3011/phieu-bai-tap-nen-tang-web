@@ -173,3 +173,18 @@ Dự đoán kết quả (Phân tích bộ chọn):
    - Cách 2: Không dùng border-box (Tính toán thủ công). Ta phải trừ bớt phần Padding và Border ra khỏi width ban đầu: 
      + Width mới Sidebar: 300 - 40 (padding) - 2 (border) = 258px
      + Width mới Content: 660 - 60 (padding) - 2 (border) = 598px
+
+## Câu C2 (10đ) — Cascade Puzzle
+1. "Sản phẩm A" (h2) có font-size = ? và color = ?
+- Font-size: 20px. Giải thích: Selector .card .title (0, 2, 0) nhắm trực tiếp vào phần tử này. Thuộc tính font-size: 14px của .container chỉ là sự kế thừa (mức ưu tiên thấp nhất), nên bị ghi đè bởi selector trực tiếp.
+- Color: Green. Giải thích: Dù #featured .title có ID (1, 1, 0) rất mạnh và định màu đỏ, nhưng lớp .highlight sử dụng !important. Trong CSS, !important là "tối cao", nó đè bẹp mọi điểm đặc hiệu khác.
+
+2. "Mô tả sản phẩm" (p trong card featured) có color = ?
+- Color: Blue. Giải thích: Phần tử này có rule .card p { color: inherit; }. Từ khóa inherit buộc nó phải lấy màu từ cha trực tiếp của nó là .card. Mà .card có color: blue. Vì vậy, nó có màu xanh da trời.
+
+3. "Sản phẩm B" (h2) có font-size = ? và color = ?
+- Font-size: 20px. Giải thích: Tương tự sản phẩm A, selector .card .title (0, 2, 0) áp dụng cho tất cả tiêu đề trong card.
+- Color: Blue. Giải thích: Ở đây không có !important hay ID nào can thiệp vào màu của tiêu đề B. Nó thừa hưởng màu từ cha là .card (màu xanh).
+
+4. "Mô tả sản phẩm B" (p.highlight) có color = ?
+- Color: Green. Giải thích: !important trong .highlight xuất hiện. Bất kể các quy tắc kế thừa hay selector khác, cứ có !important là nó thắng.
