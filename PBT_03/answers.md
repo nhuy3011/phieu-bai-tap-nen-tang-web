@@ -130,3 +130,31 @@ Dự đoán kết quả (Phân tích bộ chọn):
     <img width="1828" height="859" alt="Screenshot 2026-05-10 213721" src="https://github.com/user-attachments/assets/251c4321-2053-4e8c-a838-8229666ace45" />
   + Nếu KHÔNG sử dụng border-box: Tổng chiều rộng sẽ bị đẩy lên thành 1000 + (15*2) + (20*2) + (15**2) = 1100px. Kết quả là cột bên phải sẽ bị đẩy xuống dòng dưới vì container chỉ rộng 1000px.
      <img width="1832" height="891" alt="Screenshot 2026-05-10 214224" src="https://github.com/user-attachments/assets/1809c48a-e37a-41f7-9c7a-d1fd2a50f604" />
+
+## Bài B3 (15đ) — Specificity Battle
+1. Liệt kê 10 rules + specificity score
+   | STT | Rule | Specificity (a, b, c) | Màu sắc |
+   | :--- | :----: | ---: |---: |
+   | 1	| p	| 0, 0, 1	| Gray |
+   | 2	| body p | 0, 0, 2 | Silver |
+   | 3	| .text	| 0, 1, 0	| Blue |
+   | 4	| p.text	| 0, 1, 1	| Green |
+   | 5	| .text.highlight	| 0, 2, 0	| Orange |
+   | 6	| p.text.highlight	| 0, 2, 1	| Purple |
+   | 7	| #demo	| 1, 0, 0	| Brown |
+   | 8	| p#demo	| 1, 0, 1	| Cyan |
+   | 9	| #demo.text	| 1, 1, 0	| Magenta |
+   | 10	| p#demo.text.highlight	| 1, 2, 1	| Crimson |
+
+2. Element cuối cùng hiển thị màu gì? Tại sao?
+- Màu cuối cùng hiển thị: Crimson (Đỏ thẫm).
+- Tại sao? Vì quy tắc số 10 có điểm đặc hiệu cao nhất (1, 2, 1). Trong CSS, trình duyệt so sánh từ trái sang phải. Chỉ cần cột ID (số 1) lớn hơn là sẽ thắng, nếu bằng nhau mới xét đến cột Class và sau cùng là Element.
+
+3. Chụp screenshot kết quả
+  
+4. Thay đổi thứ tự rules trong CSS file. Kết quả có đổi không? Giải thích.
+- Kết quả có đổi không? KHÔNG.
+- Giải thích: Khi các quy tắc có điểm đặc hiệu khác nhau, trình duyệt luôn chọn quy tắc có điểm cao nhất bất kể nó nằm ở đầu hay cuối file CSS. Thứ tự viết code (ai viết sau người đó thắng) chỉ có tác dụng khi hai quy tắc có cùng số điểm đặc hiệu.
+
+
+   
