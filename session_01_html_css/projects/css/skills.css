@@ -18,3 +18,13 @@
 .html { width: 90%; }
 .js { width: 70%; }
 .csharp { width: 80%; }
+
+/* Tối ưu hiển thị cho các màn hình khác nhau */
+@media (max-width: 992px) {
+    .skills-container { padding: 20px; }
+}
+
+@media (max-width: 768px) {
+    .section-title { font-size: 2rem; }
+    .skill-box { margin: 15px 0; }
+}
