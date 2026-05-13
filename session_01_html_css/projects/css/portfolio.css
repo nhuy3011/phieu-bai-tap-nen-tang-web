@@ -21,3 +21,29 @@
 
 @media (max-width: 992px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .portfolio-grid { grid-template-columns: 1fr; } }
+
+.portfolio-item img {
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1); /* Phóng to ảnh 10% */
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(44, 62, 80, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
