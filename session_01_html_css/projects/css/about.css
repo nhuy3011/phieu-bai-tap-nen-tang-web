@@ -1,0 +1,53 @@
+.about {
+    padding: 100px 10%;
+    background-color: #fff;
+}
+
+.about-flex {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.about-image img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0 var(--primary-color); /* Hiệu ứng đổ bóng vuông kiểu hiện đại */
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--dark-bg);
+}
+
+.about-info {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.about-info p {
+    margin-bottom: 10px;
+}
+
+/* Responsive: Trên điện thoại ảnh và chữ sẽ xếp chồng lên nhau (stacked) */
+@media (max-width: 768px) {
+    .about-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-image img {
+        width: 250px;
+        height: 250px;
+        box-shadow: 10px 10px 0 var(--primary-color);
+    }
+}
