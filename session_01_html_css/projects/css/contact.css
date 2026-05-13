@@ -17,3 +17,8 @@
     border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: var(--transition);
 }
 .submit-btn:hover { background: var(--dark-bg); }
+
+@media (max-width: 600px) {
+    .contact { padding: 40px 5%; }
+    .contact-form { padding: 20px; }
+}
