@@ -1,0 +1,6 @@
+.main-footer { background: var(--dark-bg); color: white; padding: 40px 10%; text-align: center; }
+.social-links { margin-top: 20px; }
+.social-links a {
+    color: white; text-decoration: none; margin: 0 15px; transition: var(--transition);
+}
+.social-links a:hover { color: var(--primary-color); }
