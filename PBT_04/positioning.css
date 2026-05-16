@@ -1,0 +1,121 @@
+/* Reset nền tảng giải quyết kích thước Box */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+}
+
+/* ========================================================
+   1. FIXED HEADER: Khóa chặt trên cùng viewport màn hình
+   ======================================================== */
+.global-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1a202c; /* Nền tối đậm sang trọng */
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 1000; /* Đảm bảo luôn nổi trên mọi thành phần khi cuộn trang */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo { font-size: 20px; font-weight: bold; letter-spacing: 1px; }
+.nav-links a { color: #e2e8f0; text-decoration: none; margin-left: 24px; }
+
+/* Bố cục Container chính */
+.layout-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 80px auto 0 auto; /* Đẩy xuống 80px để không bị Header che khuất Content */
+    padding: 0 20px;
+    gap: 30px;
+}
+
+/* ========================================================
+   2. STICKY SIDEBAR: Cuộn mượt và dính chặt theo ngữ cảnh
+   ======================================================== */
+.sidebar-menu {
+    width: 250px;
+    position: -webkit-sticky; /* Hỗ trợ trình duyệt Safari cũ */
+    position: sticky;
+    top: 80px; /* Cách mép trên màn hình 80px (60px Header + 20px khoảng cách đẹp) */
+    height: fit-content; /* QUAN TRỌNG: Sticky chỉ chạy khi chiều cao bằng chính nội dung của nó */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.sidebar-menu h3 { font-size: 16px; margin-bottom: 15px; color: #2d3748; }
+.sidebar-menu ul { list-style: none; }
+.sidebar-menu li { margin-bottom: 10px; }
+.sidebar-menu a { text-decoration: none; color: #4a5568; font-size: 14px; }
+.sidebar-menu a.active { color: #3182ce; font-weight: bold; }
+
+/* Vùng nội dung chính chứa danh sách sản phẩm */
+.main-content { flex: 1; }
+.main-content h2 { font-size: 22px; color: #2d3748; margin-bottom: 15px; }
+
+/* ========================================================
+   3. PRODUCT CARD & ABSOLUTE BADGE: Điểm neo tọa độ phá cách
+   ======================================================== */
+.product-card {
+    position: relative; /* LÀM MỐC TỌA ĐỘ (gốc 0,0) cho Badge con bám theo */
+    width: 240px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.badge-hot {
+    position: absolute;
+    top: -10px;    /* Đẩy nhô lên khỏi cạnh trên card tạo hiệu ứng 3D */
+    right: -10px;  /* Đẩy nhô sang bên phải */
+    background-color: #e53e3e; /* Đỏ rực cháy */
+    color: #ffffff;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%; /* Cắt bo tròn hoàn hảo */
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 42px; /* Căn giữa chữ theo chiều dọc */
+    box-shadow: 0 4px 8px rgba(229, 62, 62, 0.4);
+}
+
+.product-image { font-size: 48px; text-align: center; margin: 20px 0; }
+.product-title { font-size: 16px; color: #2d3748; margin-bottom: 8px; }
+.product-price { color: #e53e3e; font-weight: bold; font-size: 15px; }
+
+/* Kỹ thuật tạo chiều cao giả lập để trình duyệt xuất hiện thanh cuộn dọc */
+.spacer-scroll { height: 1200px; }
+
+/* ========================================================
+   4. FIXED SCROLL TO TOP BUTTON: Ghim chặt góc màn hình
+   ======================================================== */
+.btn-scroll-top {
+    position: fixed;
+    bottom: 30px; /* Cách đáy viewport 30px */
+    right: 30px;  /* Cách cạnh phải viewport 30px */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999; /* Luôn nằm trên các sản phẩm thông thường */
+    box-shadow: 0 4px 10px rgba(49, 130, 206, 0.3);
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning Playground</title>
+    <link rel="stylesheet" href="positioning.css">
+</head>
+<body>
+
+    <header class="global-header">
+        <div class="logo">TechStore</div>
+        <nav class="nav-links">
+            <a href="#">Trang chủ</a>
+            <a href="#">Sản phẩm</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+    </header>
+
+    <div class="layout-container">
+        
+        <aside class="sidebar-menu">
+            <h3>Danh mục bài học</h3>
+            <ul>
+                <li><a href="#" class="active">1. CSS Positioning</a></li>
+                <li><a href="#">2. Flexbox Deep Dive</a></li>
+                <li><a href="#">3. CSS Grid Advanced</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h2>Kho sản phẩm nổi bật</h2>
+            
+            <div class="product-card">
+                <div class="badge-hot">HOT</div>
+                <div class="product-image">💻</div>
+                <h4 class="product-title">MacBook Pro M3 Pro</h4>
+                <p class="product-price">54.990.000đ</p>
+            </div>
+            
+            <div class="spacer-scroll"></div>
+        </main>
+    </div>
+
+    <button class="btn-scroll-top" aria-label="Cuộn lên đầu trang">&uarr;</button>
+
+</body>
+</html>
