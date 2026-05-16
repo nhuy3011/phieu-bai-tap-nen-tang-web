@@ -49,6 +49,7 @@
 **Lỗi 1: Cards không đều chiều cao — nút "Mua" bị nhảy lên/xuống**
 - Mô tả lỗi: Mặc định, các .card nằm trong .card-container (Flex container) sẽ có chiều cao bằng nhau nhờ thuộc tính align-items: stretch. Tuy nhiên, bản thân mỗi .card lại chưa phải là một Flex container. Khi tiêu đề (h3) hoặc đoạn mô tả của các card có độ dài ngắn khác nhau, phần nội dung của .card sẽ bị trồi sụt, kéo theo nút .btn bị đẩy lên hoặc hạ xuống tự do thay vì bám đều ở đáy.
 - Code sửa: Biến .card thành một Flex container theo chiều dọc (column) và áp dụng margin-top: auto cho nút bấm.
+```
 .card-container { 
     display: flex; 
     flex-wrap: wrap; 
@@ -68,10 +69,12 @@
     /* SỬA TẠI ĐÂY: Đẩy nút bấm luôn dính sát đáy card */
     margin-top: auto; 
 }
+```
 
 **Lỗi 2: Items không căn giữa được trong container 100vh**
 - Mô tả lỗi: Khi bạn khai báo display: flex; cho .hero, các phần tử con bên trong mới chỉ sẵn sàng để được căn chỉnh nhưng bạn chưa ra lệnh cho Flexbox căn chỉnh chúng như thế nào. Vì vậy, theo mặc định, phần tử con .hero-content vẫn sẽ nằm ở vị trí khởi đầu là góc trên cùng bên trái (flex-start).
 - Code sửa: Bổ sung hai thuộc tính căn chỉnh chủ lực của Flexbox: justify-content (căn giữa theo chiều ngang) và align-items (căn giữa theo chiều dọc).
+```
 .hero {
     height: 100vh;
     display: flex;
@@ -82,11 +85,12 @@
 .hero-content {
     text-align: center;
 }
+```
 
 **Lỗi 3: Sidebar bị co lại khi content quá dài**
 - Mô tả lỗi: Trong Flexbox, mọi phần tử con (Flex items) mặc định đều có thuộc tính flex-shrink: 1. Điều này có nghĩa là khi tổng kích thước của .sidebar (250px) và .content vượt quá độ rộng của dòng .layout (do content quá dài), Flexbox sẽ tự động "bóp nghẹt" (co) cả .sidebar lại để ép toàn bộ nội dung hiển thị vừa trên một hàng, khiến sidebar không giữ được kích thước 250px ban đầu.
 - Code sửa: Sử dụng thuộc tính flex-shrink: 0 trên .sidebar để ra lệnh cho Flexbox: "Tuyệt đối không được phép co kích thước của khối này trong mọi tình huống". Ngoài ra, nên chuyển sang dùng flex-basis hoặc viết tắt flex: 0 0 250px.
-CSS
+```
 .layout { display: flex; }
 
 .sidebar { 
@@ -98,3 +102,4 @@ CSS
     /* flex: 0 0 250px; */ 
 }
 .content { flex: 1; }
+```
