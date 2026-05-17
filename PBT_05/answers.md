@@ -49,4 +49,10 @@ CSS
 ## Câu A2 (5đ) — Điểm ngắt
 BẢNG TIÊU CHUẨN BREAKPOINTS & BỐ TRÍ LƯỚI SẢN PHẨM
 | Tên Breakpoint	| Kích thước Pixel	| Thiết bị đại diện	| Số cột hiển thị (Lưới sản phẩm) |
-|
+| :--- | :----: | ---: |---: |
+| xs	| < 576px	| Điện thoại dọc (Mobile Portrait) |	1 cột (Layout mặc định, xếp chồng dọc) |
+| sm	| ≥ 576px	| Điện thoại ngang (Mobile Landscape)	| 1 - 2 cột (Tùy thuộc vào kích thước sản phẩm) |
+| md	| ≥ 768px	| Máy tính bảng (Tablet)	|2 cột (grid-template-columns: repeat(2, 1fr)) |
+| lg	| ≥ 992px	| Máy tính màn hình nhỏ (Small Desktop/Laptop)	| 3 - 4 cột (Bắt đầu chia nhiều cột hơn) |
+| xl	| ≥ 1200px	| Máy tính màn hình lớn (Large Desktop)	| 4 cột (grid-template-columns: repeat(4, 1fr)) |
+
