@@ -191,3 +191,17 @@ $radius-base: 8px;
 - Cỡ chữ có thay đổi không? Có thay đổi rất rõ rệt. Cỡ chữ (Font size) được thiết kế linh hoạt bằng các đơn vị tương đối (như rem, em hoặc căn theo phần trăm).
   + Trên màn hình máy tính (1440px), tiêu đề video và tên kênh có kích thước lớn, dễ đọc từ khoảng cách xa.
   + Khi thu nhỏ về di động (375px), kích thước phông chữ của tiêu đề video, số lượt xem và phần mô tả tự động giảm xuống một vài pixel (cậu có thể thấy trong ảnh, chữ tiêu đề video nhỏ gọn lại rõ rệt) giúp nội dung không bị tràn màn hình hoặc nhảy dòng quá nhiều làm vỡ giao diện.
+
+## Câu C2 (10đ) — Thiết kế Chiến lược đáp ứng
+1. Phiên bản Di động (Mobile — Dưới 768px)
+- Bố cục tổng thể: 1 cột duy nhất (1-column layout), các thành phần xếp chồng vertically để người dùng dễ dàng lướt bằng 1 ngón tay.
+- Những gì bị ẩn? * Số điện thoại đặt bàn trên Header được ẩn đi (hoặc thay bằng một icon nút gọi điện nhỏ gọn để tiết kiệm không gian).
+- Lưới 6 ảnh món ăn sẽ bị ẩn bớt 4 ảnh, chỉ hiển thị 2 ảnh tiêu biểu nhất để tăng tốc độ tải trang trên mạng di động 3G/4G.
+- Biểu mẫu đặt bàn (Form) nằm ở đâu? Form đặt bàn được đẩy lên vị trí rất cao—ngay phía dưới hình ảnh chính toàn trang—giúp khách hàng thực hiện hành động chuyển đổi (đặt bàn) nhanh nhất mà không cần cuộn trang quá nhiều. Bản đồ nhúng sẽ nằm ở dưới cùng, ngay trên footer.
+2. Phiên bản Máy tính bảng (Tablet — Từ 768px đến 1024px)
+- Lưới ảnh món ăn (Grid): Chuyển từ xếp dọc thành Lưới 2 cột (grid-template-columns: repeat(2, 1fr)) hiển thị đầy đủ 4 hoặc 6 ảnh món ăn.
+- Bản đồ Google Maps nằm ở đâu? Bản đồ dịch chuyển lên nằm song song ngay cạnh Biểu mẫu đặt bàn thành cấu trúc 2 cột cân xứng (Form bên trái chiếm 50%, Bản đồ bên phải chiếm 50% độ rộng).
+3. Phiên bản Máy tính (Desktop — Trên 1024px)
+- Layout tổng thể: Chuyển sang dạng Đa cột (Multi-column layout) với vùng nội dung chính giới hạn tối đa (max-width: 1200px) căn giữa màn hình.
+- Cấu trúc lưới: Lưới ảnh món ăn mở rộng hoàn toàn thành Lưới 3 cột hoặc 6 cột xếp gọn gàng trên cùng các hàng ngang.
+- Thanh bên (Sidebar): Xuất hiện một thanh bên cố định ở phía bên phải. Thanh bên này sẽ gom Biểu mẫu đặt bàn và Số điện thoại hotline vào trong để nó luôn ghim chặt bên mắt người dùng, trong khi vùng nội dung lớn bên trái hiển thị Hình ảnh chính, Giới thiệu và Lưới món ăn.
