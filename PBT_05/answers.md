@@ -159,3 +159,16 @@ $radius-base: 8px;
   + Các cách thực hiện bước biên dịch này trong thực tế:
     + Dùng công cụ hỗ trợ trong VS Code: Cài đặt Extension có tên là "Live Sass Compiler", sau đó nhấp vào nút "Watch Sass" ở thanh trạng thái bên dưới. Mỗi khi bạn nhấn Ctrl + S để lưu file .scss, extension này sẽ tự động biên dịch ngay lập tức ra file .css.
     + Dùng các bộ đóng gói trong dự án lớn: Trong các dự án thực tế sử dụng các framework lớn, các công cụ tự động hóa như Webpack hoặc Vite đã được cấu hình tích hợp sẵn bộ biên dịch ngầm, bạn chỉ việc code và hệ thống sẽ tự lo phần chuyển đổi.
+
+# PHẦN B — THỰC HÀNH CODE (60 điểm)
+## Bài B3 (20đ) — SCSS Refactor
+**Ghi lại các phương thức biên dịch trong dự án**
+- **Cách 1: Sử dụng Extension "Live Sass Compiler" trên VS Code.** Đây là công cụ tự động hóa trực quan nhất được tích hợp ngay bên trong trình chỉnh sửa mã nguồn VS Code:
+* **Bước 1:** Cài đặt Extension **Live Sass Compiler** (Tác giả: Glenn Marks) từ chợ ứng dụng Extensions (`Ctrl + Shift + X`).
+* **Bước 2:** Di chuyển chuột xuống thanh trạng thái (Status Bar) dưới đáy màn hình VS Code.
+* **Bước 3:** Nhấn chuột vào nút **`Watch Sass`**. Ngay lập tức trạng thái sẽ chuyển sang **`Watching...`**.
+* **Bước 4:** Mỗi khi nhấn tổ hợp phím `Ctrl + S` để lưu tệp `scss/style.scss`, hệ thống ngầm sẽ tự động biên dịch và tạo ra tệp đầu ra `scss/style.css` và tệp sơ đồ ánh xạ `scss/style.css.map`.
+- **Cách 2: Sử dụng lệnh biên dịch qua Terminal / Command Line (Dùng Sass CLI).** Nếu không dùng extension giao diện đồ họa, dự án có thể được biên dịch trực tiếp thông qua cửa sổ dòng lệnh Terminal (như Git Bash, PowerShell trong ảnh chụp màn hình dự án) bằng các lệnh sau:
+* **Lệnh biên dịch thủ công một lần (Compile Once):**
+  ```bash
+  sass scss/style.scss scss/style.css
