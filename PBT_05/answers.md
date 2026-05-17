@@ -172,3 +172,22 @@ $radius-base: 8px;
 * **Lệnh biên dịch thủ công một lần (Compile Once):**
   ```bash
   sass scss/style.scss scss/style.css
+
+# PHẦN C — PHÂN TÍCH (20 điểm)
+## Câu C1 (10đ) — Phân tích trang web thực tế
+**2. PHÂN TÍCH ĐÁP ỨNG (RESPONSIVE) TRÊN TRANG WEB YOUTUBE**
+- Điều hướng thay đổi thế nào?
+  + Phiên bản di động (375px): Thanh điều hướng chính phía trên được thu gọn tối đa. Menu danh mục bên trái hoàn toàn bị ẩn đi và thay thế bằng nút Menu Hamburger (☰) ở góc trên cùng bên trái để người dùng bấm vào khi cần mở rộng.
+  + Máy tính bảng (768px): Thanh tìm kiếm (Search bar) bắt đầu xuất hiện rõ ràng ở giữa Header. Nút Hamburger vẫn tồn tại nhưng Menu bên trái lúc này thu nhỏ lại thành một dải dọc chứa các icon nhỏ (Trang chủ, Shorts, Kênh đăng ký) để tiết kiệm diện tích.
+  + Màn hình máy tính (1440px): Header hiển thị đầy đủ nhất với thanh tìm kiếm rộng và đầy đủ các icon tiện ích góc phải. Menu bên trái tự động mở rộng hoàn toàn (hiển thị cả icon và chữ mô tả dài) giúp người dùng thao tác nhanh mà không cần bấm mở.
+- Nội dung lưới thay đổi như thế nào?
+  + Phiên bản di động (375px): Bố cục chuyển hoàn toàn thành lưới 1 cột (1 column layout). Video đang phát chiếm trọn chiều rộng màn hình, và danh sách các video gợi ý bên dưới xếp chồng theo hàng dọc một cách tuần tự để người dùng dễ dàng lướt bằng ngón tay.
+  + Máy tính bảng (768px): Khi xoay ngang hoặc dùng iPad, không gian rộng hơn giúp giao diện chia thành các khu vực rõ ràng hơn, tuy nhiên danh sách video gợi ý bên dưới vẫn được ưu tiên xếp dọc gọn gàng dưới video chính.
+  + Màn hình máy tính (1440px): Layout chuyển sang dạng đa cột (Multi-column layout) một cách tối ưu. Màn hình được chia làm 2 phần lớn rõ rệt: Khung bên trái (chiếm khoảng 70% độ rộng) hiển thị nội dung video đang phát + phần bình luận; Khung bên phải (chiếm 30% còn lại) là một lưới danh sách các thẻ video gợi ý/kế tiếp.
+- Thành phần nào bị ẩn trên thiết bị di động? Khi co về màn hình 375px, để trang web tải nhanh và không bị rối, YouTube đã ẩn đi rất nhiều thành phần:
+  + Khung hiển thị danh sách video gợi ý đặt ở bên phải (được đẩy xuống dưới cùng thay vì song song).
+  + Thanh tìm kiếm mặc định bị ẩn, chỉ chừa lại icon kính lúp (khi nào cần bấm mới hiện ô nhập).
+  + Một số thông tin phụ như nút chia sẻ, tải xuống, hoặc số lượt bình luận hiển thị thu gọn lại hoặc ẩn bớt chữ.
+- Cỡ chữ có thay đổi không? Có thay đổi rất rõ rệt. Cỡ chữ (Font size) được thiết kế linh hoạt bằng các đơn vị tương đối (như rem, em hoặc căn theo phần trăm).
+  + Trên màn hình máy tính (1440px), tiêu đề video và tên kênh có kích thước lớn, dễ đọc từ khoảng cách xa.
+  + Khi thu nhỏ về di động (375px), kích thước phông chữ của tiêu đề video, số lượt xem và phần mô tả tự động giảm xuống một vài pixel (cậu có thể thấy trong ảnh, chữ tiêu đề video nhỏ gọn lại rõ rệt) giúp nội dung không bị tràn màn hình hoặc nhảy dòng quá nhiều làm vỡ giao diện.
