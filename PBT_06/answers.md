@@ -1,7 +1,9 @@
 # PHẦN A — ĐỌC HIỂU (20 điểm)
 ## Câu A1 (10đ) — Hệ thống lưới
 **BẢNG PHÂN TÍCH BỐ CỤC**
+
 | Kích thước màn hình	| < 768px (Mobile)	| 768px - 991px (Tablet / md)	| ≥ 992px (Desktop / lg) |
+| :--- | :---- || :--- | :---- |
 | Số cột | 12 / 12 (mỗi box chiếm 100% chiều rộng)	| 6 / 12 (mỗi box chiếm 50% chiều rộng)	| 3 / 12 (mỗi box chiếm 25% chiều rộng) |
 | Bố cục hộp | Xếp chồng thành 4 hàng(1 box mỗi hàng) | Chia thành 2 hàng(2 box mỗi hàng) | Nằm cùng 1 hàng(4 box trên một hàng) |
 
@@ -16,3 +18,36 @@
   + Cơ chế ghi đè xuôi: col-12 đã đặt độ rộng 100% cho màn hình nhỏ. Khi màn hình tăng dần lên kích thước sm (576px - 767px), do không có class nào chặn lại, nó vẫn sẽ kế thừa độ rộng 100% từ col-12. Phải đến khi chạm mốc md (768px), class col-md-6 mới nhảy vào kích hoạt để ghi đè cấu trúc lên thành 50%.
 Do đó, từ khoảng màn hình sm (576px đến 767px) phần tử đã tự động full-width rồi, không cần tốn công khai báo col-sm-12.
 
+## Câu A2 (10đ) — Tiện ích & Linh kiện
+**1. Lớp giải thích d-none d-md-block. Phần tử này hiển thị khi nào, ẩn khi nào?**
+- Đây là sự kết hợp của hai lớp tiện ích về hiển thị (Display utilities) hoạt động theo nguyên lý Mobile-First (tác động từ màn hình nhỏ đến màn hình lớn).
+- d-none: Ẩn phần tử này trên tất cả các kích thước màn hình (bắt đầu từ màn hình nhỏ nhất < 576px).
+- d-md-block: Bắt đầu từ màn hình kích thước Trung bình (Medium $\ge$ 768px) trở lên, thuộc tính hiển thị của phần tử sẽ được ghi đè thành display: block.
+- Kết luận:
+    + Ẩn khi nào: Màn hình nhỏ hơn 768px (Bao gồm các thiết bị Mobile diện Extra Small < 576px và Small từ 576px - 776px).
+    + Hiển thị khi nào: Màn hình từ 768px trở lên (Bao gồm các thiết bị từ Tablet, Desktop cho đến màn hình cực lớn).
+**2. Liệt kê 5 tiện ích giãn cách (lề/padding) và giải thích. VĐ: mt-3, px-4,mb-auto**
+Các tiện ích giãn cách trong Bootstrap tuân theo cú pháp: {thuộc tính}{hướng}-{kích thước}. Trong đó kích thước từ 0 đến 5 tương ứng với các mức độ tăng dần dựa trên chuẩn $spacer (mặc định 1rem = 16px).
+- mt-3 (Margin Top 3):
+  + Giải thích: Thêm khoảng cách lề bên trên của phần tử.
+  + Mức độ: Mức 3 bằng chính xác với $spacer (tương đương 1rem hoặc 16px).
+- px-4 (Padding X 4):
+  + Giải thích: Thêm khoảng cách đệm bên trong cho cả 2 bên Trái (Left) và Phải (Right) theo trục hoành X.
+  + Mức độ: Mức 4 bằng $spacer * 1.5 (tương đương 1.5rem hoặc 24px).
+- mb-auto (Margin Bottom Auto):
+  + Giải thích: Tự động căn khoảng cách lề bên dưới của phần tử.
+  + Ứng dụng: Thường dùng trong Flexbox để đẩy các phần tử khác xuống dưới cùng hoặc đẩy chính nó lên trên cùng của thẻ bọc.
+- py-2 (Padding Y 2):
+  + Giải thích: Thêm khoảng cách đệm bên trong cho cả 2 hướng Trên (Top) và Dưới (Bottom) theo trục tung Y.
+  + Mức độ: Mức 2 bằng $spacer * 0.5 (tương đương 0.5rem hoặc 8px).
+- ms-5 (Margin Start 5):
+  + Giải thích: Thêm khoảng cách lề bên trái (Trong Bootstrap 5, s - start thay thế cho l - left để hỗ trợ các ngôn ngữ đọc từ phải sang trái).
+  + Mức độ: Mức 5 là mức lớn nhất bằng $spacer * 3 (tương đương 3rem hoặc 48px).
+
+**3. Sự khác nhau giữa .container, .container-fluid, .container-md?**
+| Tiêu chí so sánh	| .container (Cố định - Fixed)	| .container-fluid (Toàn màn hình - Fluid)	| .container-md (Breakpoints cố định)|
+| :--- | :---- || :--- | :---- |
+| Bản chất	| Co giãn theo từng nấc kích thước màn hình cố định, tự động tạo lề trống hai bên khi màn hình lớn.	| Luôn luôn lấp đầy 100% chiều rộng của màn hình bất kể thiết bị lớn hay nhỏ.	| Hoạt động giống hệt như .container-fluid trên màn hình nhỏ, và chuyển thành .container trên màn hình lớn. |
+| Độ rộng trên Mobile (<= 768px)	| Chiếm 100% chiều rộng màn hình.	| Chiếm 100% chiều rộng màn hình.	| Chiếm 100% chiều rộng màn hình.|
+| Độ rộng trên Desktop (>=992px) | Bị giới hạn chiều rộng tối đa (max-width: 960px) và căn giữa. | Vẫn tiếp tục tràn ra 100% chiều rộng màn hình. | Bị giới hạn chiều rộng tối đa (max-width: 960px) và căn giữa y hệt .container. |
+| Trường hợp áp dụng	| Làm khung bọc cho nội dung chính của website (như bài viết, danh sách sản phẩm) để nội dung không bị dạt ra quá sát mép màn hình lớn.	| Làm banner lớn đầu trang (Hero Section), thanh menu điều hướng (Navbar) hoặc chân trang (Footer) khi muốn màu nền hoặc nội dung trải dài hết màn hình.	| Thích hợp cho các layout muốn hiển thị tràn viền mềm mại trên các thiết bị di động/máy tính bảng nhỏ, nhưng cần gom gọn gàng lại khi xem trên máy tính để bàn |
