@@ -3,7 +3,7 @@
 **BẢNG PHÂN TÍCH BỐ CỤC**
 
 | Kích thước màn hình	| < 768px (Mobile)	| 768px - 991px (Tablet / md)	| ≥ 992px (Desktop / lg) |
-| :--- | :---- || :--- | :---- |
+| :--- | :----: | ---: |---: |
 | Số cột | 12 / 12 (mỗi box chiếm 100% chiều rộng)	| 6 / 12 (mỗi box chiếm 50% chiều rộng)	| 3 / 12 (mỗi box chiếm 25% chiều rộng) |
 | Bố cục hộp | Xếp chồng thành 4 hàng(1 box mỗi hàng) | Chia thành 2 hàng(2 box mỗi hàng) | Nằm cùng 1 hàng(4 box trên một hàng) |
 
@@ -46,8 +46,9 @@ Các tiện ích giãn cách trong Bootstrap tuân theo cú pháp: {thuộc tín
 
 **3. Sự khác nhau giữa .container, .container-fluid, .container-md?**
 | Tiêu chí so sánh	| .container (Cố định - Fixed)	| .container-fluid (Toàn màn hình - Fluid)	| .container-md (Breakpoints cố định)|
-| :--- | :---- || :--- | :---- |
+| :--- | :----: | ---: |---: |
 | Bản chất	| Co giãn theo từng nấc kích thước màn hình cố định, tự động tạo lề trống hai bên khi màn hình lớn.	| Luôn luôn lấp đầy 100% chiều rộng của màn hình bất kể thiết bị lớn hay nhỏ.	| Hoạt động giống hệt như .container-fluid trên màn hình nhỏ, và chuyển thành .container trên màn hình lớn. |
 | Độ rộng trên Mobile (<= 768px)	| Chiếm 100% chiều rộng màn hình.	| Chiếm 100% chiều rộng màn hình.	| Chiếm 100% chiều rộng màn hình.|
 | Độ rộng trên Desktop (>=992px) | Bị giới hạn chiều rộng tối đa (max-width: 960px) và căn giữa. | Vẫn tiếp tục tràn ra 100% chiều rộng màn hình. | Bị giới hạn chiều rộng tối đa (max-width: 960px) và căn giữa y hệt .container. |
 | Trường hợp áp dụng	| Làm khung bọc cho nội dung chính của website (như bài viết, danh sách sản phẩm) để nội dung không bị dạt ra quá sát mép màn hình lớn.	| Làm banner lớn đầu trang (Hero Section), thanh menu điều hướng (Navbar) hoặc chân trang (Footer) khi muốn màu nền hoặc nội dung trải dài hết màn hình.	| Thích hợp cho các layout muốn hiển thị tràn viền mềm mại trên các thiết bị di động/máy tính bảng nhỏ, nhưng cần gom gọn gàng lại khi xem trên máy tính để bàn |
+
